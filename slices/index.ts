@@ -2,4 +2,12 @@
 
 import dynamic from "next/dynamic";
 
-export const components = {};
+export const components = {
+  call_to_action: dynamic(() => import("./CallToAction")),
+  heading: dynamic(() => import("./Heading")),
+  hero: dynamic(() => import("./Hero")),
+  image_text: dynamic(() => import("./ImageText")),
+  quote: dynamic(() => import("./Quote")),
+  solution_section: dynamic(() => import("./SolutionSection")),
+  text_section: dynamic(() => import("./TextSection")),
+};

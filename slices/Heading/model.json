@@ -1,0 +1,61 @@
+{
+  "id": "heading",
+  "type": "SharedSlice",
+  "name": "Heading",
+  "description": "Heading",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "navigation": {
+          "type": "Group",
+          "config": {
+            "label": "Navigation",
+            "repeat": false,
+            "fields": {
+              "home_logo": {
+                "type": "Image",
+                "config": {
+                  "label": "Home Logo",
+                  "constraint": {
+                    "width": 39,
+                    "height": 41
+                  },
+                  "thumbnails": []
+                }
+              },
+              "home": {
+                "type": "Link",
+                "config": {
+                  "label": "Home",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              },
+              "about": {
+                "type": "Link",
+                "config": {
+                  "label": "About",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

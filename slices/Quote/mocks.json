@@ -1,0 +1,19 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"quote": {
+				"__TYPE__": "FieldContent",
+				"value": "mainly",
+				"type": "Text"
+			},
+			"author": {
+				"__TYPE__": "FieldContent",
+				"value": "require",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

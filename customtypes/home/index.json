@@ -1,24 +1,29 @@
 {
   "format": "page",
-  "id": "homepage",
-  "label": "Homepage",
+  "id": "home",
+  "label": "Home",
   "repeatable": false,
   "status": true,
   "json": {
     "Main": {
-      "title": {
-        "type": "Text",
-        "config": {
-          "label": "Title",
-          "placeholder": ""
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "call_to_action": {
+              "type": "SharedSlice"
+            },
+            "image_text": {
+              "type": "SharedSlice"
+            },
+            "text_section": {
+              "type": "SharedSlice"
+            },
             "hero": {
+              "type": "SharedSlice"
+            },
+            "heading": {
               "type": "SharedSlice"
             }
           }

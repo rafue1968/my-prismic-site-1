@@ -8,16 +8,21 @@ import { components } from "@/slices";
 
 export default async function Page() {
   const client = createClient();
-  const page = await client.getSingle("homepage").catch(() => notFound());
+  const page = await client
+    .getSingle("homepage")
+    .catch(() => notFound());
 
-  return <div className="text-red-900">Homepage!!!</div>
-
-  // return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <main className="flex flex-col">
+      <SliceZone slices={page.data.slices} components={components} />
+    </main>
+  );
 }
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
   const page = await client.getSingle("homepage").catch(() => notFound());
+
 
   return {
     title: page.data.meta_title,
