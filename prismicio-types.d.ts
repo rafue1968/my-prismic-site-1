@@ -69,6 +69,97 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
+type AboutUsDocumentDataSlicesSlice =
+  | ValueSectionSlice
+  | ImageTextSlice
+  | TextSectionSlice
+  | HeroSlice;
+
+/**
+ * Content for About Us documents
+ */
+interface AboutUsDocumentData {
+  /**
+   * Title field in *About Us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Intro field in *About Us*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.intro
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  intro: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *About Us*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<AboutUsDocumentDataSlicesSlice>; /**
+   * Meta Title field in *About Us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: about_us.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *About Us*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: about_us.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *About Us*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_us.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * About Us document from Prismic
+ *
+ * - **API ID**: `about_us`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AboutUsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<AboutUsDocumentData>,
+    "about_us",
+    Lang
+  >;
+
 type CaseStudyDocumentDataSlicesSlice = ImageTextSlice | TextSectionSlice;
 
 /**
@@ -570,6 +661,7 @@ export type SolutionDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | AboutUsDocument
   | CaseStudyDocument
   | HomeDocument
   | HomepageDocument
@@ -1406,6 +1498,98 @@ export type TextSectionSlice = prismic.SharedSlice<
   TextSectionSliceVariation
 >;
 
+/**
+ * Item in *ValueSection → Default → Primary → Values*
+ */
+export interface ValueSectionSliceDefaultPrimaryValuesItem {
+  /**
+   * Value title field in *ValueSection → Default → Primary → Values*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: value_section.default.primary.values[].value_title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  value_title: prismic.KeyTextField;
+
+  /**
+   * Value Description field in *ValueSection → Default → Primary → Values*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: value_section.default.primary.values[].value_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  value_description: prismic.RichTextField;
+
+  /**
+   * Icon field in *ValueSection → Default → Primary → Values*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: value_section.default.primary.values[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ValueSection → Default → Primary*
+ */
+export interface ValueSectionSliceDefaultPrimary {
+  /**
+   * Section title field in *ValueSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: value_section.default.primary.section_title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  section_title: prismic.KeyTextField;
+
+  /**
+   * Values field in *ValueSection → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: value_section.default.primary.values[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  values: prismic.GroupField<
+    Simplify<ValueSectionSliceDefaultPrimaryValuesItem>
+  >;
+}
+
+/**
+ * Default variation for ValueSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ValueSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ValueSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ValueSection*
+ */
+type ValueSectionSliceVariation = ValueSectionSliceDefault;
+
+/**
+ * ValueSection Shared Slice
+ *
+ * - **API ID**: `value_section`
+ * - **Description**: ValueSection
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ValueSectionSlice = prismic.SharedSlice<
+  "value_section",
+  ValueSectionSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1427,6 +1611,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      AboutUsDocument,
+      AboutUsDocumentData,
+      AboutUsDocumentDataSlicesSlice,
       CaseStudyDocument,
       CaseStudyDocumentData,
       CaseStudyDocumentDataSlicesSlice,
@@ -1485,6 +1672,11 @@ declare module "@prismicio/client" {
       TextSectionSliceDefaultPrimary,
       TextSectionSliceVariation,
       TextSectionSliceDefault,
+      ValueSectionSlice,
+      ValueSectionSliceDefaultPrimaryValuesItem,
+      ValueSectionSliceDefaultPrimary,
+      ValueSectionSliceVariation,
+      ValueSectionSliceDefault,
     };
   }
 }

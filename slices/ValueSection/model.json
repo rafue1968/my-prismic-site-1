@@ -1,0 +1,59 @@
+{
+  "id": "value_section",
+  "type": "SharedSlice",
+  "name": "ValueSection",
+  "description": "ValueSection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "section_title": {
+          "type": "Text",
+          "config": {
+            "label": "Section title",
+            "placeholder": ""
+          }
+        },
+        "values": {
+          "type": "Group",
+          "config": {
+            "label": "Values",
+            "repeat": true,
+            "fields": {
+              "value_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Value title",
+                  "placeholder": ""
+                }
+              },
+              "value_description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Value Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "icon": {
+                "type": "Image",
+                "config": {
+                  "label": "Icon",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -44,41 +44,50 @@ const SolutionSection: FC<SolutionSectionProps> = ({ slice }) => {
         {slice.variation === "problemAndSolution" && (
           <div className="grid md:grid-cols-2 gap-10 mb-12">
             {/* Problem */}
-            <h3 className="text-xl font-semibold text-red-600 mb-4">
-              The Problem
-            </h3>
-            <PrismicRichText 
-              field={slice.primary.problem}
-              components={{
-                paragraph: ({children}) => (
-                  <p className="text-slate-600 leading-relaxed">
-                    {children}
-                  </p>
-                ),
-              }}
-            />
+            <div className="bg-slate-50 p-8 rounded-xl">
+              <h3 className="text-xl font-semibold text-red-600 mb-4">
+                The Problem
+              </h3>
+              <PrismicRichText 
+                field={slice.primary.problem}
+                components={{
+                  paragraph: ({children}) => (
+                    <p className="text-slate-600 leading-relaxed">
+                      {children}
+                    </p>
+                  ),
+                }}
+              />
+            </div>
 
-          {/* The Solution */}
-          <div className="bg-slate-50 p-8 rounded-xl">
-            <h3 className="text-xl font-semibold text-emerald-600 mb-4">
-              The Solution
-            </h3>
-            <PrismicRichText
-              field={slice.primary.solution}
-              components={{
-                paragraph: ({children}) => (
-                  <p className="text-slate-600 leading-relaxed">
-                    {children}
-                  </p>
-                )
-              }}
-            />
-          </div>
-          
+            {/* The Solution */}
+            <div className="bg-slate-50 p-8 rounded-xl">
+              <h3 className="text-xl font-semibold text-emerald-600 mb-4">
+                The Solution
+              </h3>
+              <PrismicRichText
+                field={slice.primary.solution}
+                components={{
+                  paragraph: ({children}) => (
+                    <p className="text-slate-600 leading-relaxed">
+                      {children}
+                    </p>
+                  )
+                }}
+              />
+            </div>
+
+            {/* Image */}
+            {slice.primary.image && (
+              <div className="mt-8">
+                <PrismicNextImage
+                  field={slice.primary.image}
+                  className="rounded-xl shadow-lg w-full"
+                />
+              </div>
+            )}
           </div>
         )}
-
-
       </div>
     </section>
   );

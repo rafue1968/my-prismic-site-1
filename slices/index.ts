@@ -10,4 +10,5 @@ export const components = {
   quote: dynamic(() => import("./Quote")),
   solution_section: dynamic(() => import("./SolutionSection")),
   text_section: dynamic(() => import("./TextSection")),
+  value_section: dynamic(() => import("./ValueSection")),
 };
