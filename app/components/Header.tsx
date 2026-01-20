@@ -18,7 +18,19 @@ export default async function Header(){
                     <ul className="flex items-center gap-8">
                         {settings.data.navigation.map(({link, label}) => (
                             <li key={label}>
-                                <PrismicNextLink field={link} className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900">{label}</PrismicNextLink>
+                                {link ? (
+                                    <PrismicNextLink
+                                        field={link}
+                                        className="text-sm font-medium text-gray-600 transition-colors hover:text-gray-900"
+                                    >
+                                        {label}
+                                    </PrismicNextLink>
+                                    ) : (
+                                        <span className="text-sm font-medium text-gray-400">
+                                            {label}
+                                        </span>
+                                    )
+                                }
                             </li>
                         ))}
                     </ul>

@@ -5,6 +5,7 @@ import {
 } from "@prismicio/client";
 import { enableAutoPreviews } from "@prismicio/next";
 import sm from "./slicemachine.config.json";
+import * as prismic from "@prismicio/client"
 
 /**
  * The project's Prismic repository name.
@@ -19,9 +20,10 @@ export const repositoryName =
  */
 // TODO: Update the routes array to match your project's route structure.
 const routes: Route[] = [
-  // Examples:
-  // { type: "homepage", path: "/" },
-  // { type: "page", path: "/:uid" },
+  { type: "homepage", path: "/" },
+  { type: "about_us", path: "/about" },
+  { type: "solution", path: "/solutions/:uid" },
+  { type: "case_study", path: "/case-studies/:uid" }
 ];
 
 /**
@@ -44,3 +46,22 @@ export const createClient = (config: ClientConfig = {}) => {
 
   return client;
 };
+
+// export const linkResolver = (doc: prismic.PrismicDocument) => {
+//   switch (doc.type){
+//     case "homepage":
+//       return "/"
+
+//     case "about_us":
+//       return "/about"
+
+//     case "solution":
+//       return `/solutions/${doc.uid}`;
+
+//     case "case_study":
+//       return `/case-studies/${doc.uid}`;
+    
+//     default:
+//       return "/";
+//   }
+// }
