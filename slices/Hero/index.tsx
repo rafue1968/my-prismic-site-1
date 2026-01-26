@@ -24,7 +24,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-slate-800">{children}</h1>
           )
         }} />
-        <PrismicRichText field={slice.primary.body} components={{
+        <PrismicRichText field={slice.primary.subheading} components={{
           paragraph: ({children}) => (<p className="text-lg md:text-xl text-slate-600 max-w-2xl">
                                         {children}
                                     </p> )
