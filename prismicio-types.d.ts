@@ -422,7 +422,10 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type HomepageDocumentDataSlicesSlice = HeroSlice;
+type HomepageDocumentDataSlicesSlice =
+  | CaseStudiesSliceSlice
+  | FeaturedGridSliceSlice
+  | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -868,6 +871,210 @@ export type CallToActionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *CaseStudiesSlice → Default → Primary → Repeater*
+ */
+export interface CaseStudiesSliceSliceDefaultPrimaryRepeaterItem {
+  /**
+   * Title field in *CaseStudiesSlice → Default → Primary → Repeater*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies_slice.default.primary.repeater[].title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Summary field in *CaseStudiesSlice → Default → Primary → Repeater*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies_slice.default.primary.repeater[].summary
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  summary: prismic.RichTextField;
+
+  /**
+   * Image field in *CaseStudiesSlice → Default → Primary → Repeater*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies_slice.default.primary.repeater[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Link field in *CaseStudiesSlice → Default → Primary → Repeater*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies_slice.default.primary.repeater[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Primary content in *CaseStudiesSlice → Default → Primary*
+ */
+export interface CaseStudiesSliceSliceDefaultPrimary {
+  /**
+   * Repeater field in *CaseStudiesSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: case_studies_slice.default.primary.repeater[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  repeater: prismic.GroupField<
+    Simplify<CaseStudiesSliceSliceDefaultPrimaryRepeaterItem>
+  >;
+}
+
+/**
+ * Default variation for CaseStudiesSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CaseStudiesSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CaseStudiesSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CaseStudiesSlice*
+ */
+type CaseStudiesSliceSliceVariation = CaseStudiesSliceSliceDefault;
+
+/**
+ * CaseStudiesSlice Shared Slice
+ *
+ * - **API ID**: `case_studies_slice`
+ * - **Description**: CaseStudiesSlice
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CaseStudiesSliceSlice = prismic.SharedSlice<
+  "case_studies_slice",
+  CaseStudiesSliceSliceVariation
+>;
+
+/**
+ * Item in *FeaturedGridSlice → Default → Primary → Repeater for Features*
+ */
+export interface FeaturedGridSliceSliceDefaultPrimaryRepeaterForFeaturesItem {
+  /**
+   * Icon field in *FeaturedGridSlice → Default → Primary → Repeater for Features*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_grid_slice.default.primary.repeater_for_features[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Feature title field in *FeaturedGridSlice → Default → Primary → Repeater for Features*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_grid_slice.default.primary.repeater_for_features[].feature_title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  feature_title: prismic.RichTextField;
+
+  /**
+   * Feature description field in *FeaturedGridSlice → Default → Primary → Repeater for Features*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_grid_slice.default.primary.repeater_for_features[].feature_description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  feature_description: prismic.RichTextField;
+
+  /**
+   * Link field in *FeaturedGridSlice → Default → Primary → Repeater for Features*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_grid_slice.default.primary.repeater_for_features[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Primary content in *FeaturedGridSlice → Default → Primary*
+ */
+export interface FeaturedGridSliceSliceDefaultPrimary {
+  /**
+   * Title field in *FeaturedGridSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_grid_slice.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *FeaturedGridSlice → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_grid_slice.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Repeater for Features field in *FeaturedGridSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: featured_grid_slice.default.primary.repeater_for_features[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  repeater_for_features: prismic.GroupField<
+    Simplify<FeaturedGridSliceSliceDefaultPrimaryRepeaterForFeaturesItem>
+  >;
+}
+
+/**
+ * Default variation for FeaturedGridSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FeaturedGridSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeaturedGridSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FeaturedGridSlice*
+ */
+type FeaturedGridSliceSliceVariation = FeaturedGridSliceSliceDefault;
+
+/**
+ * FeaturedGridSlice Shared Slice
+ *
+ * - **API ID**: `featured_grid_slice`
+ * - **Description**: FeaturedGridSlice
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FeaturedGridSliceSlice = prismic.SharedSlice<
+  "featured_grid_slice",
+  FeaturedGridSliceSliceVariation
+>;
+
+/**
  * Item in *Heading → Default → Primary → Navigation*
  */
 export interface HeadingSliceDefaultPrimaryNavigationItem {
@@ -964,14 +1171,14 @@ export interface HeroSliceDefaultPrimary {
   heading: prismic.RichTextField;
 
   /**
-   * Body field in *Hero → Default → Primary*
+   * Subtitle field in *Hero → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.body
+   * - **API ID Path**: hero.default.primary.subtitle
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  body: prismic.RichTextField;
+  subtitle: prismic.RichTextField;
 
   /**
    * Button Text field in *Hero → Default → Primary*
@@ -1810,6 +2017,16 @@ declare module "@prismicio/client" {
       CallToActionSlice,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
+      CaseStudiesSliceSlice,
+      CaseStudiesSliceSliceDefaultPrimaryRepeaterItem,
+      CaseStudiesSliceSliceDefaultPrimary,
+      CaseStudiesSliceSliceVariation,
+      CaseStudiesSliceSliceDefault,
+      FeaturedGridSliceSlice,
+      FeaturedGridSliceSliceDefaultPrimaryRepeaterForFeaturesItem,
+      FeaturedGridSliceSliceDefaultPrimary,
+      FeaturedGridSliceSliceVariation,
+      FeaturedGridSliceSliceDefault,
       HeadingSlice,
       HeadingSliceDefaultPrimaryNavigationItem,
       HeadingSliceDefaultPrimary,

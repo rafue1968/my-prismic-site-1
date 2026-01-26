@@ -18,6 +18,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "case_studies_slice": {
+              "type": "SharedSlice"
+            },
+            "featured_grid_slice": {
+              "type": "SharedSlice"
+            },
             "hero": {
               "type": "SharedSlice"
             }

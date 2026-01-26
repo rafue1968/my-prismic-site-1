@@ -21,10 +21,10 @@
             "single": "heading3"
           }
         },
-        "body": {
+        "subtitle": {
           "type": "StructuredText",
           "config": {
-            "label": "Body",
+            "label": "Subtitle",
             "placeholder": "",
             "allowTargetBlank": true,
             "multi": "paragraph,strong,em"

@@ -14,17 +14,6 @@
 					}
 				]
 			},
-			"body": {
-				"__TYPE__": "StructuredTextContent",
-				"value": [
-					{
-						"type": "paragraph",
-						"content": {
-							"text": "Aute sunt incididunt ex id tempor."
-						}
-					}
-				]
-			},
 			"button_text": {
 				"__TYPE__": "FieldContent",
 				"value": "thus",
@@ -109,6 +98,17 @@
 					"url": "https://slicemachine.dev",
 					"text": "development"
 				}
+			},
+			"subtitle": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Culpa sit nostrud reprehenderit dolore voluptate reprehenderit commodo culpa consectetur est commodo id ullamco. Minim cillum cupidatat labore excepteur aliquip non incididunt ea. Ut culpa voluptate excepteur dolor aute."
+						}
+					}
+				]
 			}
 		},
 		"items": []
