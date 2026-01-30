@@ -20,9 +20,9 @@ export default async function CaseStudyPage() {
 
   const page = await client.getSingle("caste_studies_listing").catch(() => notFound());
 
-  const posts = await client.getAllByType("case_study", {
-    orderings: [{ field: "my.case_study.publication_date", direction: "desc" }],
-  });
+//   const posts = await client.getAllByType("case_study", {
+//     orderings: [{ field: "my.case_study.publication_date", direction: "desc" }],
+//   });
 
   return (
     <div className="flex flex-col gap-12 w-full max-w-4xl mx-auto py-12">
@@ -33,11 +33,11 @@ export default async function CaseStudyPage() {
       </div>
 
       {/* Blog posts grid */}
-      <div className="grid gap-8 sm:grid-cols-2">
-        {posts.map((post) => (
-          <PostCard key={post.id} post={post} />
-        ))}
-      </div>
+      {/* <div className="grid gap-8 sm:grid-cols-2"> */}
+        {/* {posts.map((post) => ( */}
+          {/* <PostCard key={post.id} post={post} /> */}
+        {/* ))} */}
+      {/* </div> */}
     </div>
   );
 }
