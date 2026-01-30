@@ -1,0 +1,34 @@
+{
+  "id": "blog_grid_slice",
+  "type": "SharedSlice",
+  "name": "BlogGridSlice",
+  "description": "BlogGridSlice",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "post": {
+          "type": "Group",
+          "config": {
+            "label": "Post",
+            "repeat": true,
+            "fields": {}
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

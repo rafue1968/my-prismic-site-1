@@ -29,6 +29,15 @@
                 "allowText": true,
                 "repeat": false
               }
+            },
+            "highlight": {
+              "type": "Boolean",
+              "config": {
+                "label": "Highlight",
+                "placeholder_false": "false",
+                "placeholder_true": "true",
+                "default_value": false
+              }
             }
           }
         }

@@ -24,7 +24,10 @@ const routes: Route[] = [
   { type: "about_us", path: "/about" },
   { type: "solution", path: "/solutions/:uid" },
   { type: "case_study", path: "/case-studies/:uid" },
-  { type: "blog_post", path: "/blog/:uid" }
+  { type: "blog_post", path: "/blog/:uid" },
+  { type: "blog_listing", path: "/blog" },
+  { type: "contact_page", path: "/contact" },
+  { type: "caste_studies_listing", path: "/case-studies"},
 ];
 
 /**

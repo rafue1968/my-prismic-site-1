@@ -5,7 +5,7 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { PostCard } from "./components/PostCard";
-import { Navigation } from "./components/Navigation";
+import { Navigation } from "./components/navigation/Navigation.server";
 
 export default async function Page() {
   const client = createClient();

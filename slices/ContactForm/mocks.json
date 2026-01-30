@@ -1,0 +1,19 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"form_title": {
+				"__TYPE__": "FieldContent",
+				"value": "nervous",
+				"type": "Text"
+			},
+			"submit_label": {
+				"__TYPE__": "FieldContent",
+				"value": "herd",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

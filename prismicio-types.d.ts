@@ -160,6 +160,93 @@ export type AboutUsDocument<Lang extends string = string> =
     Lang
   >;
 
+type BlogListingDocumentDataSlicesSlice = BlogGridSliceSlice;
+
+/**
+ * Content for Blog Listing documents
+ */
+interface BlogListingDocumentData {
+  /**
+   * Title field in *Blog Listing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_listing.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Blog Listing*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_listing.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Blog Listing*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_listing.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<BlogListingDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Blog Listing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: blog_listing.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Blog Listing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: blog_listing.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Blog Listing*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_listing.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Blog Listing document from Prismic
+ *
+ * - **API ID**: `blog_listing`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BlogListingDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<BlogListingDocumentData>,
+    "blog_listing",
+    Lang
+  >;
+
 type BlogPostDocumentDataSlicesSlice = never;
 
 /**
@@ -356,6 +443,180 @@ export type CaseStudyDocument<Lang extends string = string> =
     Lang
   >;
 
+type CasteStudiesListingDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Caste Studies Listing documents
+ */
+interface CasteStudiesListingDocumentData {
+  /**
+   * Title field in *Caste Studies Listing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: caste_studies_listing.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Caste Studies Listing*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: caste_studies_listing.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Caste Studies Listing*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: caste_studies_listing.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<CasteStudiesListingDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Caste Studies Listing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: caste_studies_listing.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Caste Studies Listing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: caste_studies_listing.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Caste Studies Listing*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: caste_studies_listing.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Caste Studies Listing document from Prismic
+ *
+ * - **API ID**: `caste_studies_listing`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CasteStudiesListingDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<CasteStudiesListingDocumentData>,
+    "caste_studies_listing",
+    Lang
+  >;
+
+type ContactPageDocumentDataSlicesSlice = ContactFormSlice | ContactInfoSlice;
+
+/**
+ * Content for Contact Page documents
+ */
+interface ContactPageDocumentData {
+  /**
+   * Title field in *Contact Page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_page.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *Contact Page*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_page.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Contact Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<ContactPageDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Contact Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: contact_page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Contact Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: contact_page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Contact Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Contact Page document from Prismic
+ *
+ * - **API ID**: `contact_page`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ContactPageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<ContactPageDocumentData>,
+    "contact_page",
+    Lang
+  >;
+
 type HomeDocumentDataSlicesSlice =
   | CallToActionSlice
   | ImageTextSlice
@@ -524,6 +785,17 @@ export interface NavigationDocumentDataMenuItemsItem {
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
   link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Highlight field in *Navigation → Menu Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: navigation.menu_items[].highlight
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  highlight: prismic.BooleanField;
 }
 
 /**
@@ -831,14 +1103,77 @@ export type SolutionDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | AboutUsDocument
+  | BlogListingDocument
   | BlogPostDocument
   | CaseStudyDocument
+  | CasteStudiesListingDocument
+  | ContactPageDocument
   | HomeDocument
   | HomepageDocument
   | NavigationDocument
   | PageDocument
   | SettingsDocument
   | SolutionDocument;
+
+/**
+ * Item in *BlogGridSlice → Default → Primary → Post*
+ */
+export interface BlogGridSliceSliceDefaultPrimaryPostItem {}
+
+/**
+ * Primary content in *BlogGridSlice → Default → Primary*
+ */
+export interface BlogGridSliceSliceDefaultPrimary {
+  /**
+   * Title field in *BlogGridSlice → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_grid_slice.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Post field in *BlogGridSlice → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_grid_slice.default.primary.post[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  post: prismic.GroupField<Simplify<BlogGridSliceSliceDefaultPrimaryPostItem>>;
+}
+
+/**
+ * Default variation for BlogGridSlice Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BlogGridSliceSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BlogGridSliceSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BlogGridSlice*
+ */
+type BlogGridSliceSliceVariation = BlogGridSliceSliceDefault;
+
+/**
+ * BlogGridSlice Shared Slice
+ *
+ * - **API ID**: `blog_grid_slice`
+ * - **Description**: BlogGridSlice
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type BlogGridSliceSlice = prismic.SharedSlice<
+  "blog_grid_slice",
+  BlogGridSliceSliceVariation
+>;
 
 /**
  * Default variation for CallToAction Slice
@@ -960,6 +1295,126 @@ type CaseStudiesSliceSliceVariation = CaseStudiesSliceSliceDefault;
 export type CaseStudiesSliceSlice = prismic.SharedSlice<
   "case_studies_slice",
   CaseStudiesSliceSliceVariation
+>;
+
+/**
+ * Primary content in *ContactForm → Default → Primary*
+ */
+export interface ContactFormSliceDefaultPrimary {
+  /**
+   * Form Title field in *ContactForm → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form.default.primary.form_title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  form_title: prismic.KeyTextField;
+
+  /**
+   * Submit Label field in *ContactForm → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_form.default.primary.submit_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  submit_label: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ContactForm Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactFormSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactFormSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactForm*
+ */
+type ContactFormSliceVariation = ContactFormSliceDefault;
+
+/**
+ * ContactForm Shared Slice
+ *
+ * - **API ID**: `contact_form`
+ * - **Description**: ContactForm
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactFormSlice = prismic.SharedSlice<
+  "contact_form",
+  ContactFormSliceVariation
+>;
+
+/**
+ * Primary content in *ContactInfo → Default → Primary*
+ */
+export interface ContactInfoSliceDefaultPrimary {
+  /**
+   * Email field in *ContactInfo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_info.default.primary.email
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * Phone field in *ContactInfo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_info.default.primary.phone
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  phone: prismic.KeyTextField;
+
+  /**
+   * Address field in *ContactInfo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_info.default.primary.address
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  address: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ContactInfo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactInfoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactInfoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactInfo*
+ */
+type ContactInfoSliceVariation = ContactInfoSliceDefault;
+
+/**
+ * ContactInfo Shared Slice
+ *
+ * - **API ID**: `contact_info`
+ * - **Description**: ContactInfo
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ContactInfoSlice = prismic.SharedSlice<
+  "contact_info",
+  ContactInfoSliceVariation
 >;
 
 /**
@@ -1989,12 +2444,21 @@ declare module "@prismicio/client" {
       AboutUsDocument,
       AboutUsDocumentData,
       AboutUsDocumentDataSlicesSlice,
+      BlogListingDocument,
+      BlogListingDocumentData,
+      BlogListingDocumentDataSlicesSlice,
       BlogPostDocument,
       BlogPostDocumentData,
       BlogPostDocumentDataSlicesSlice,
       CaseStudyDocument,
       CaseStudyDocumentData,
       CaseStudyDocumentDataSlicesSlice,
+      CasteStudiesListingDocument,
+      CasteStudiesListingDocumentData,
+      CasteStudiesListingDocumentDataSlicesSlice,
+      ContactPageDocument,
+      ContactPageDocumentData,
+      ContactPageDocumentDataSlicesSlice,
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
@@ -2014,6 +2478,11 @@ declare module "@prismicio/client" {
       SolutionDocumentData,
       SolutionDocumentDataSlicesSlice,
       AllDocumentTypes,
+      BlogGridSliceSlice,
+      BlogGridSliceSliceDefaultPrimaryPostItem,
+      BlogGridSliceSliceDefaultPrimary,
+      BlogGridSliceSliceVariation,
+      BlogGridSliceSliceDefault,
       CallToActionSlice,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
@@ -2022,6 +2491,14 @@ declare module "@prismicio/client" {
       CaseStudiesSliceSliceDefaultPrimary,
       CaseStudiesSliceSliceVariation,
       CaseStudiesSliceSliceDefault,
+      ContactFormSlice,
+      ContactFormSliceDefaultPrimary,
+      ContactFormSliceVariation,
+      ContactFormSliceDefault,
+      ContactInfoSlice,
+      ContactInfoSliceDefaultPrimary,
+      ContactInfoSliceVariation,
+      ContactInfoSliceDefault,
       FeaturedGridSliceSlice,
       FeaturedGridSliceSliceDefaultPrimaryRepeaterForFeaturesItem,
       FeaturedGridSliceSliceDefaultPrimary,

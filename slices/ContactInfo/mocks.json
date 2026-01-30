@@ -1,0 +1,24 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"email": {
+				"__TYPE__": "FieldContent",
+				"value": "wing",
+				"type": "Text"
+			},
+			"phone": {
+				"__TYPE__": "FieldContent",
+				"value": "ground",
+				"type": "Text"
+			},
+			"address": {
+				"__TYPE__": "FieldContent",
+				"value": "visitor",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

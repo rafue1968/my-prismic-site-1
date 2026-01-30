@@ -3,8 +3,11 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  // blog_grid_slice: dynamic(() => import("./BlogGridSlice")),
   call_to_action: dynamic(() => import("./CallToAction")),
   case_studies_slice: dynamic(() => import("./CaseStudiesSlice")),
+  contact_form: dynamic(() => import("./ContactForm")),
+  contact_info: dynamic(() => import("./ContactInfo")),
   featured_grid_slice: dynamic(() => import("./FeaturedGridSlice")),
   heading: dynamic(() => import("./Heading")),
   hero: dynamic(() => import("./Hero")),
