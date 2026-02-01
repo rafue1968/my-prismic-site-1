@@ -47,10 +47,10 @@ export default function RootLayout({
       </head>
 
       <body
-        className = "bg-stone-50"
+        className = "bg-stone-50 text-slate-800 antialiased"
       >
         <Header />
-          <div className="mx-auto max-w-7xl bg-white border-x border-gray-200 p-12 min-h-screen">
+          <div className="mx-auto max-w-7xl bg-white border-x border-slate-200 px-6 md:px-12 py-16 min-h-screen">
             {children}
           </div>
         <Footer />

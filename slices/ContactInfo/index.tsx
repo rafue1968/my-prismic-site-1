@@ -1,8 +1,7 @@
 import { SliceComponentProps } from "@prismicio/react";
 import { Content } from "@prismicio/client";
 
-export type ContactInfoProps =
-  SliceComponentProps<Content.ContactInfoSlice>;
+export type ContactInfoProps = SliceComponentProps<Content.ContactInfoSlice>;
 
 export default function ContactInfo({ slice }: ContactInfoProps) {
   return (

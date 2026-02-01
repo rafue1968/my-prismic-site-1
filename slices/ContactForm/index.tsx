@@ -4,8 +4,7 @@ import { useState } from "react";
 import { SliceComponentProps } from "@prismicio/react";
 import { Content } from "@prismicio/client";
 
-export type ContactFormProps =
-  SliceComponentProps<Content.ContactFormSlice>;
+export type ContactFormProps = SliceComponentProps<Content.ContactFormSlice>;
 
 export default function ContactForm({ slice }: ContactFormProps) {
   const [loading, setLoading] = useState(false);
@@ -31,27 +30,27 @@ export default function ContactForm({ slice }: ContactFormProps) {
         <input
           type="text"
           placeholder="Your name"
-          className="w-full rounded-lg border border-gray-300 p-3"
+          className="w-full rounded-lg border border-slate-300 p-3"
           required
         />
 
         <input
           type="email"
           placeholder="Your email"
-          className="w-full rounded-lg border border-gray-300 p-3"
+          className="w-full rounded-lg border border-slate-300 p-3"
           required
         />
 
         <textarea
           placeholder="Your message"
           rows={5}
-          className="w-full rounded-lg border border-gray-300 p-3"
+          className="w-full rounded-lg border border-slate-300 p-3"
           required
         />
 
         <button
           disabled={loading}
-          className="rounded-lg bg-indigo-600 px-6 py-3 text-white font-medium hover:bg-indigo-700 transition disabled:opacity-50"
+          className="inline-flex items-center justify-center rounded-full bg-indigo-600 px-8 py-3 text-white font-semibold hover:bg-indigo-700 transition"
         >
           {loading ? "Sending..." : slice.primary.submit_label}
         </button>

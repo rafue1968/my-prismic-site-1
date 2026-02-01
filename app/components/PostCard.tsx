@@ -11,27 +11,29 @@ export const PostCard = ({
 
     
     return (
-        <PrismicLink document={post} className="grid grid-cols-2 gap-10">
+        <PrismicLink
+        document={post}
+        className="group grid grid-cols-1 md:grid-cols-5 gap-6"
+        >
             <PrismicNextImage
                 field={data.featured_image}
                 sizes="100vw"
-                className="w-full max-w-sm max-h-60 rounded-xl object-cover"
+                className="md:col-span-2 aspect-[4/3] rounded-xl object-cover transition group-hover:scale-[1.02]"
             />
-                <div className="flex flex-col gap-3">
-                    <div className="flex flex-col gap-1">
-                        <p className="text-sm opacity-75 text-slate-700 border-b-2 w-min pb-1">
-                            {new Date(data?.publication_date || "").toLocaleDateString()}
-                        </p>
-                        <div className="hover:opacity-75 duration-300 ease-in-out transition-all">
-                            <h2 className="font-bold text-xl">
-                                <PrismicText field={data.title} />
-                            </h2>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div className="border-b border-solid border-gray-200 w-full col-span-2" />
-        </PrismicLink>
 
+            <div className="md:col-span-3 flex flex-col justify-center gap-3">
+                <p className="text-sm font-medium text-amber-500">
+                {new Date(data.publication_date || "").toLocaleDateString()}
+                </p>
+
+                <h2 className="text-2xl font-bold leading-tight text-slate-900 group-hover:text-indigo-600 transition">
+                <PrismicText field={data.title} />
+                </h2>
+
+                <p className="text-slate-600 line-clamp-3">
+                <PrismicText field={data.description} />
+                </p>
+            </div>
+        </PrismicLink>
     )
 }
